@@ -1,20 +1,42 @@
 [package]
 name = "combo_gen"
-version = "0.1.0"
+version = "2.0.0"
 edition = "2021"
+authors = ["Your Name"]
+
 [dependencies]
+# Core dependencies
 num_cpus = "1.16.0"
 indicatif = "0.17.8"
 flate2 = "1.0"
+
+# GPU acceleration (optional - comment out for CPU-only build)
+wgpu = "0.18"
+pollster = "0.3"
+bytemuck = { version = "1.14", features = ["derive"] }
+
+# Performance optimizations
+rayon = "1.8"           # Parallel iterators
+memmap2 = "0.9"         # Memory-mapped file I/O
+crossbeam = "0.8"       # Better concurrent data structures
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.release-with-debug]
+inherits = "release"
+debug = true
+strip = false
+
 [[bin]]
-name = "n"
-path = "src/combo_gen_fixed.rs"
-[[bin]]
-name = "pro"
-path = "src/combo_gen_optimized.rs"
-[[bin]]
-name = "max"
-path = "src/combo_gen_ultra.rs"
-[[bin]]
-name = "combo_gen"
-path = "src/main.rs"
+name = "combo_gen_hybrid"
+path = "src/combo_gen_hybrid.rs"
+
+[features]
+default = ["gpu"]
+gpu = ["wgpu", "pollster", "bytemuck"]
+cpu-only = []
