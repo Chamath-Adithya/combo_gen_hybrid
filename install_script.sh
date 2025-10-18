@@ -1,6 +1,6 @@
 #!/bin/bash
 # install.sh - ComboGen 2.0 Quick Installation Script
-# Usage: curl -sSL https://raw.githubusercontent.com/chamath-adithya/combo_gen/main/install.sh | bash
+# Usage: curl -sSL https://raw.githubusercontent.com/chamath-adithya/combo_gen_hybrid/main/install.sh | bash
 # Or: ./install.sh
 
 set -e

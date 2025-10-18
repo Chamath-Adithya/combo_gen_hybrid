@@ -11,9 +11,9 @@ indicatif = "0.17.8"
 flate2 = "1.0"
 
 # GPU acceleration (optional - comment out for CPU-only build)
-wgpu = "0.18"
-pollster = "0.3"
-bytemuck = { version = "1.14", features = ["derive"] }
+wgpu = { version = "0.18", optional = true }
+pollster = { version = "0.3", optional = true }
+bytemuck = { version = "1.14", features = ["derive"], optional = true }
 
 # Performance optimizations
 rayon = "1.8"           # Parallel iterators
@@ -34,7 +34,7 @@ strip = false
 
 [[bin]]
 name = "combo_gen_hybrid"
-path = "src/combo_gen_hybrid.rs"
+path = "src/main.rs"
 
 [features]
 default = ["gpu"]
