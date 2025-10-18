@@ -96,11 +96,11 @@ if [ -d "$INSTALL_DIR" ]; then
     cd "$INSTALL_DIR"
     git pull
 else
-    git clone https://github.com/chamath-adithya/combo_gen.git "$INSTALL_DIR"
+    git clone https://github.com/Chamath-Adithya/combo_gen_hybrid.git "$INSTALL_DIR"
     cd "$INSTALL_DIR"
 fi
 
-cd Rust/combo_gen
+cd "$INSTALL_DIR"
 echo -e "${GREEN}✓ Repository ready${NC}"
 
 # Build based on selection
@@ -142,7 +142,7 @@ fi
 
 # Create symlink
 echo -e "\n${BLUE}Creating symlink...${NC}"
-BINARY_PATH="$INSTALL_DIR/Rust/combo_gen/target/release/combo_gen_hybrid"
+BINARY_PATH="$INSTALL_DIR/target/release/combo_gen_hybrid"
 SYMLINK_PATH="$HOME/.local/bin/combo_gen"
 
 mkdir -p "$HOME/.local/bin"
@@ -175,9 +175,9 @@ fi
 
 # Create benchmark script
 echo -e "\n${BLUE}Setting up benchmark script...${NC}"
-if [ -f "$INSTALL_DIR/Rust/combo_gen/benchmark.sh" ]; then
-    chmod +x "$INSTALL_DIR/Rust/combo_gen/benchmark.sh"
-    ln -sf "$INSTALL_DIR/Rust/combo_gen/benchmark.sh" "$HOME/.local/bin/combo_gen_benchmark"
+if [ -f "$INSTALL_DIR/benchmark.sh" ]; then
+    chmod +x "$INSTALL_DIR/benchmark.sh"
+    ln -sf "$INSTALL_DIR/benchmark.sh" "$HOME/.local/bin/combo_gen_benchmark"
     echo -e "${GREEN}✓ Benchmark script ready: combo_gen_benchmark${NC}"
 fi
 
@@ -199,7 +199,7 @@ echo -e "\n${CYAN}"
 cat << "EOF"
 ╔══════════════════════════════════════════════╗
 ║                                              ║
-║        Installation Complete! 🎉              ║
+║        Installation Complete! 🎉             ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 EOF
@@ -220,14 +220,15 @@ if [ -f "$BINARY_PATH" ]; then
     echo -e "  ${CYAN}combo_gen 6 --charset abc123${NC}  # Custom charset"
     echo -e "  ${CYAN}combo_gen_benchmark${NC}  # Run benchmarks"
 else
-    echo -e "  ${CYAN}cd $INSTALL_DIR/Rust/combo_gen${NC}"
+    echo -e "  ${CYAN}cd $INSTALL_DIR${NC}"
     echo -e "  ${CYAN}cargo build --release${NC}"
     echo -e "  ${CYAN}./target/release/combo_gen_hybrid 8 --limit 100000${NC}"
 fi
 
 echo -e "\n${YELLOW}Documentation:${NC}"
 echo -e "  ${CYAN}cat $INSTALL_DIR/README.md${NC}"
-echo -e "  ${CYAN}https://github.com/chamath-adithya/combo_gen${NC}"
+echo -e "  ${CYAN}cat $INSTALL_DIR/EXAMPLES.md${NC}"
+echo -e "  ${CYAN}https://github.com/Chamath-Adithya/combo_gen_hybrid${NC}"
 
 echo -e "\n${GREEN}Next Steps:${NC}"
 if [ -n "$SHELL_RC" ]; then
