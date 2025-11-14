@@ -2,6 +2,7 @@
 
 **Ultra-fast combination generator with GPU acceleration, achieving up to 15M combos/second**
 
+[![DOI](https://zenodo.org/badge/1078789069.svg)](https://doi.org/10.5281/zenodo.17608690)
 [![Rust](https://img.shields.io/badge/rust-1.70%2B-orange.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Performance](https://img.shields.io/badge/performance-15M%2Fs-green.svg)]()
