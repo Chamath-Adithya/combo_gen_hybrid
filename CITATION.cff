@@ -1,0 +1,29 @@
+cff-version: "1.2.0"
+message: "If you use this software in a publication, please cite it using the metadata below."
+title: "combo_gen_hybrid: CPU+GPU Accelerated Wordlist Generator"
+version: "v1.0.0"
+doi: "10.5281/zenodo.17608690"
+url: "https://github.com/Chamath-Adithya/combo_gen_hybrid"
+date-released: "2025-11-14"
+
+authors:
+  - given-names: "Senanayaka Appuhamilage Chamath Adithya Senanayaka"
+    family-names: "S.A.C.A.Senanayaka"
+    email: "achamath1@gmail.com"
+    affiliation: "Independent Researcher"
+
+abstract: >
+  combo_gen_hybrid is a high-performance password wordlist generator that leverages both CPU and GPU
+  acceleration to produce large-scale, customizable password combinations and mutations for security
+  research and penetration testing workflows.
+
+keywords:
+  - "password wordlist"
+  - "wordlist generator"
+  - "GPU acceleration"
+  - "CPU+GPU hybrid"
+  - "security"
+  - "cybersecurity"
+  - "pentesting"
+
+license: "MIT"
